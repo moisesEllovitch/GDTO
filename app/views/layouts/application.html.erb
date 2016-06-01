@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GDTO | <%= yield (:title) %> </title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body>
+	<div class="conteudo_layout">
+		<%= yield %>
+	</div>
+
+	<div class="navegacao_layout">
+		<div class="tabela_menu_div_1">
+			<table class="tabela_menu">
+				<tr>
+					<th class="tr_menu" colspan="3">Static Pages</th>
+				</tr>
+				<tr>
+					<td class="tr_menu"><%= link_to('home', welcome_index_path) %></td>
+					<td class="tr_menu"><%= link_to('about', welcome_about_path) %></td>
+					<td class="tr_menu"><%= link_to('contact', welcome_contact_path) %></td>
+				</tr>		
+			</table>
+		</div>
+		<br />
+		<br />
+		<div class="tabela_menu_div_1">
+			<table class="tabela_menu">
+				<tr>
+					<th colspan="3">Dynamic Pages</th>			
+				</tr>
+				<tr>
+					<td class="tr_menu"><%= link_to(:user, users_path) %></td>
+					<td class="tr_menu"><%= link_to(:items, items_path) %></td>
+					<td class="tr_menu"></td>
+				</tr>		
+			</table>
+		</div>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<% provide(:title, 'Listando Itens') %>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @item.category %>
+</p>
+
+<p>
+  <strong>Institution:</strong>
+  <%= @item.institution %>
+</p>
+
+<p>
+  <strong>Average:</strong>
+  <%= @item.average %>
+</p>
+
+<%= link_to 'Edit', edit_item_path(@item) %> 
+<%= link_to 'Back', items_path %>
