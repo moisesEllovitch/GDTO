@@ -6,9 +6,12 @@ Rails.application.routes.draw do
 
   get 'welcome/contact'
 
-  resources :comments
-  resources :items
+  resources :items do
+    resources :comments
+  end
+  
   resources :users
+
   match ':controller(/:action(/:id))', :via => 'get'
 
   # The priority is based upon order of creation: first created -> highest priority.

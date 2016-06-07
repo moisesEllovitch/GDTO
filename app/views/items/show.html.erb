@@ -17,5 +17,36 @@
   <%= @item.average %>
 </p>
 
+
+<h2>Comentários</h2>
+
+<% @item.comments.each do |c| %>
+	<p>
+	  <strong>Body:</strong>
+	  <%= c.body %>
+	</p>
+
+	<p>
+	  <strong>Score:</strong>
+	  <%= c.score %>
+	</p>
+<% end %>
+
+<h2>Adicione um comentário</h2>
+
+<%= form_for([@item, @item.comments.build]) do |f| %>
+	<p>
+		<%= f.label :body %><br />
+		<%= f.text_field :body %>
+	</p>
+	<p>
+		<%= f.label :score %><br />
+		<%= f.number_field :score %>		
+	</p>
+	<p>
+		<%= f.submit %>
+	</p>
+<% end %>
+
 <%= link_to 'Edit', edit_item_path(@item) %> 
 <%= link_to 'Back', items_path %>
