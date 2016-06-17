@@ -70,5 +70,6 @@ class ItemsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
       params.require(:item).permit(:category, :institution, :average)
+      # É aqui que deve ser incluído a média calculada no helper?
     end
 end

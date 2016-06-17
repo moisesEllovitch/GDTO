@@ -13,6 +13,7 @@
 </p>
 
 <p>
+  <!-- Criar if para "Se não tiver notas, aparece texto.. se tiver, fazer a média" -->
   <strong>Average:</strong>
   <%= @item.average %>
 </p>
@@ -35,12 +36,14 @@
 <h2>Adicione um comentário</h2>
 
 <%= form_for([@item, @item.comments.build]) do |f| %>
+<!-- Acicionar aqui mensagens de erro de validação -->
+
 	<p>
 		<%= f.label :body %><br />
 		<%= f.text_field :body %>
 	</p>
 	<p>
-		<%= f.label :score %><br />
+		<%= f.label :score %> (0 - 10)<br />
 		<%= f.number_field :score %>		
 	</p>
 	<p>

@@ -18,13 +18,14 @@
 	padding: 10px, 10px, 10px, 10px;
 	background: #eee;
 	width: 600px;
-	height: 450px;
+	height: auto;
 }
 
 .navegacao_layout{
 	background: #222;
 	color: #fff;
 	hover: #888;
+	margin-top: 20px;
 }
 
 .tabela_menu_div_1{
