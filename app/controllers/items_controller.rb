@@ -10,6 +10,7 @@ class ItemsController < ApplicationController
   # GET /items/1
   # GET /items/1.json
   def show
+    #@error_message = params['format']
   end
 
   # GET /items/new

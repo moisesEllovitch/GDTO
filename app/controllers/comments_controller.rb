@@ -8,6 +8,8 @@ class CommentsController < ApplicationController
     @comment = @item.comments.create(comment_params)
 
     # Redirecionar para show de item.
+    #@error_message = @comment.errors.full_messages
+    #redirect_to item_path(@item, @error_message)
     redirect_to item_path(@item)
   end
 

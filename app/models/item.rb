@@ -3,7 +3,7 @@ class Item < ActiveRecord::Base
 
 	validates :category, presence: true
 	validates :institution, presence: true
-	validates :average, :numericality => { :greater_than_or_equal_to => 0, :less_than => 11} #, presence: true
+	#validates :average, :numericality => { :greater_than_or_equal_to => 0, :less_than => 11} #, presence: true
 
 	def calculate_average
 		puts "Entrei no método calculate_average dentro de Item. "

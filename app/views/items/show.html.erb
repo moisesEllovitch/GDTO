@@ -35,21 +35,7 @@
 
 <h2>Adicione um comentário</h2>
 
-<%= form_for([@item, @item.comments.build]) do |f| %>
-<!-- Acicionar aqui mensagens de erro de validação -->
-
-	<p>
-		<%= f.label :body %><br />
-		<%= f.text_field :body %>
-	</p>
-	<p>
-		<%= f.label :score %> (0 - 10)<br />
-		<%= f.number_field :score %>		
-	</p>
-	<p>
-		<%= f.submit %>
-	</p>
-<% end %>
+<%= render 'comments/form' %>
 
 <%= link_to 'Edit', edit_item_path(@item) %> 
 <%= link_to 'Back', items_path %>
