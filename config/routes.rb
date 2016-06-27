@@ -6,11 +6,17 @@ Rails.application.routes.draw do
 
   get 'welcome/contact'
 
+  get '/login' => 'sessions#new'#  Deixei comentário porque o "match" abaixo já resolveria..
+  post 'login' => 'sessions#create'#  Deixei comentário porque o "match" abaixo já resolveria..
+  delete 'logout' => 'sessions#destroy'#  Deixei comentário porque o "match" abaixo já resolveria..
+
   resources :items do
     resources :comments
   end
   
+  #get 'signup'  => 'users#new'  Deixei comentário porque o "match" abaixo já resolveria..
   resources :users
+
 
   match ':controller(/:action(/:id))', :via => 'get'
 

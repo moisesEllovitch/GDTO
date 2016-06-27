@@ -50,3 +50,13 @@
 .logo{
 	width: 60px;
 }
+
+#user_identification{
+	position: absolute;
+	top: 30px;
+	right: 30px;
+	color: #381;
+}
+
+
+

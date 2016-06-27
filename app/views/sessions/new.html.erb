@@ -1,0 +1,20 @@
+<% provide(:title, "Login") %>
+<h1>Login</h1>
+
+<%= flash[:notice] if flash[:notice] %>
+
+<%= form_for(:session, url: login_path) do |f| %>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :password %><br>
+    <%= f.password_field :password %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Login" %>
+  </div>
+<% end %>
+
+<p>New user? <%= link_to "Sign up now!", new_user_path %></p>
