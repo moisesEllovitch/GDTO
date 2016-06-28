@@ -10,6 +10,7 @@ class SessionsController < ApplicationController
 			puts "Usuário está autenticado e válido."
 			# redirect_to welcome_index_path, :notice => "Welcome #{user.email}"
 			log_in user # chama a action na helper de session
+			params[:session][:remember_me] == '1' ? remember(user) : forget(user)
 			#redirect_to user, :notice => "Welcome #{user.email}"
 			redirect_to welcome_index_path, :notice => "Welcome #{user.email}"
 		else
@@ -19,7 +20,7 @@ class SessionsController < ApplicationController
 	end
 
 	def destroy
-		log_out
+		log_out if logged_in?
 		redirect_to root_url
 	end
 

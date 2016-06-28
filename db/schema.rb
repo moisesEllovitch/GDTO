@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160621071323) do
+ActiveRecord::Schema.define(version: 20160628070736) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "body",       limit: 65535
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20160621071323) do
     t.string   "password_digest", limit: 255
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
+    t.string   "remember_digest", limit: 255
   end
 
   add_foreign_key "comments", "items"
