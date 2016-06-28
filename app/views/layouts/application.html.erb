@@ -12,7 +12,7 @@
 		<%= link_to image_tag('logo.jpg', class:"logo"), welcome_index_path %>
 		
 		<% if current_user != nil %>
-			<span id="user_identification"><%= "#{current_user.email}" %></span>
+			<span id="user_identification"><%= "#{current_user.email}" %> <br /> <%= link_to "Log out", logout_path, method: "delete" %></span>
 		<% else %>
 			<span id="user_identification"><%= link_to "Login", login_path %> <br /><%= link_to "Sign up now!", new_user_path %></span>
 		<% end %>
