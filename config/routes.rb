@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     resources :comments
   end
   
-  #get 'signup'  => 'users#new'  Deixei comentário porque o "match" abaixo já resolveria..
+  get 'signup'  => 'users#new'
   resources :users
 
 

@@ -1,5 +1,9 @@
 class CommentsController < ApplicationController
 
+  # Apenas usuários podem criar comentários. 
+  before_action :authorize
+
+
   def create
     # Encontrar o item que será o pai do novo comentário
     @item = Item.find(params[:item_id])

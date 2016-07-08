@@ -1,6 +1,9 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
+  # Todos podem ver index e show
+  before_action :authorize, except: [:index, :show]
+
   # GET /items
   # GET /items.json
   def index

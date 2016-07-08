@@ -1,9 +1,16 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-    
+
+  # Todos podem criar novo usuário (tela de sign up e submeter create)
+  before_action :authorize, except: [:new, :create]
+
+  # Acho que serve para o próprio usuário.
+  #before_action :correct_user?, only: [:show, :edit, :update, :destroy]
+
   # GET /users
   # GET /users.json
   def index
+    #@users = current_user
     @users = User.all
   end
 
@@ -20,6 +27,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    @user = User.find(params[:id])
   end
 
   # POST /users
@@ -51,6 +59,15 @@ class UsersController < ApplicationController
       end
     end
   end
+
+    def update
+      @user = User.find(params[:id]) 
+      if @user.update_attributes(user_params)
+        redirect_to users_path
+      else
+        render action: :edit
+      end
+    end
 
   # DELETE /users/1
   # DELETE /users/1.json
