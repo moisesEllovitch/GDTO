@@ -6,8 +6,14 @@ class ApplicationController < ActionController::Base
 
 	def authorize
 		unless logged_in?
-			redirect_to login_path, :notice => "You need to register an account...."
-		end	
+			redirect_to login_path, :notice => "You need to register an account...."			
+		end
+	end
+
+	def authorize_admin
+		unless current_user.admin?
+			redirect_to login_path, :notice => "Only admins can do it!"
+		end
 	end
 
 	def correct_user?

@@ -4,6 +4,10 @@ class ItemsController < ApplicationController
   # Todos podem ver index e show
   before_action :authorize, except: [:index, :show]
 
+  # Apenas admin pode:
+  before_action :authorize_admin, only: [:edit, :update, :destroy]
+
+
   # GET /items
   # GET /items.json
   def index

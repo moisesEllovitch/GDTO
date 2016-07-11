@@ -4,6 +4,9 @@ class UsersController < ApplicationController
   # Todos podem criar novo usuário (tela de sign up e submeter create)
   before_action :authorize, except: [:new, :create]
 
+  # Apenas admin pode:
+  before_action :authorize_admin, only: [:edit, :update, :destroy]
+
   # Acho que serve para o próprio usuário.
   #before_action :correct_user?, only: [:show, :edit, :update, :destroy]
 
@@ -28,6 +31,8 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
     @user = User.find(params[:id])
+    byebug
+    puts "current_user funciona corretamente."
   end
 
   # POST /users
@@ -76,6 +81,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
+      byebug
     end
   end
 
