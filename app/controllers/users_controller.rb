@@ -31,7 +31,6 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
     @user = User.find(params[:id])
-    byebug
     puts "current_user funciona corretamente."
   end
 
@@ -81,7 +80,6 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
-      byebug
     end
   end
 
