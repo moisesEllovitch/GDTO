@@ -13,14 +13,14 @@
   </thead>
 
   <tbody>
-    <% @comments.each do |comment| %>
+    <% @comments.each do |c| %>
       <tr>
-        <td><%= comment.body %></td>
-        <td><%= comment.score %></td>
-        <td><%= comment.item %></td>
-        <td><%= link_to 'Show', comment %></td>
-        <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
-        <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= c.body %></td>
+        <td><%= c.score %></td>
+        <td><%= c.item.category %> | <%= c.item.institution %></td>
+        <td><%= link_to 'Show', item_comment_path(@item.id, c.id) %></td>
+        <td><%= link_to 'Edit', edit_item_comment_path(@item.id, c.id) %></td>
+        <td><%= link_to 'Destroy', item_comment_path(@item.id, c.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Comment', new_comment_path %>
+<%= link_to 'New Comment', new_item_comment_path(@item.id) %>

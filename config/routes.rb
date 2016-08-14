@@ -13,10 +13,9 @@ Rails.application.routes.draw do
   resources :items do
     resources :comments
   end
-  
+
   get 'signup'  => 'users#new'
   resources :users
-
 
   match ':controller(/:action(/:id))', :via => 'get'
 

@@ -1,19 +1,22 @@
-<p id="notice"><%= notice %></p>
+<!-- Está mostranndo mensagem de que o Item foi criado, e não comentário. -->
+<!-- <p id="notice"><%= notice %></p> -->
 
-<p>
-  <strong>Body:</strong>
-  <%= @comment.body %>
-</p>
+	<p>
+	  <strong>Body:</strong>
+	  <%= @comment.body %>
+	</p>
 
-<p>
-  <strong>Score:</strong>
-  <%= @comment.score %>
-</p>
+	<p>
+	  <strong>Score:</strong>
+	  <%= @comment.score %>
+	</p>
 
-<p>
-  <strong>Item:</strong>
-  <%= @comment.item %>
-</p>
+<!-- (@item/@item.id/comments/comments.id)
+ -->
+<!-- edit_item_comment_path
+Item.find(params[:item_id])/comments
+/items/:item_id/comments/:id/edit(.:format)
+ -->
 
-<%= link_to 'Edit', edit_comment_path(@comment) %> |
-<%= link_to 'Back', comments_path %>
+<%= link_to 'Edit', edit_item_comment_path(@item.id, @comment.id) %> |
+<%= link_to 'Back', item_comments_path(@item.id) %>

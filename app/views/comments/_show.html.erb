@@ -1,0 +1,18 @@
+<!-- Está mostrando mensagem de que o Item foi criado, e não comentário. -->
+<!-- <p id="notice"><%= notice %></p> -->
+
+<% @comments.each do |co| %>
+	<p>
+	  <strong>Body:</strong>
+	  <%= co.body %>
+	</p>
+	<p>
+	  <strong>Score:</strong>
+	  <%= co.score %>
+	</p>
+
+	<% if current_user != nil && current_user.admin? %>
+		<%= link_to 'Edit', edit_item_comment_path(@item, co) %>
+		<%= link_to 'Destroy', item_comment_path(@item, co), method: :delete %>
+	<% end %>
+<% end %>

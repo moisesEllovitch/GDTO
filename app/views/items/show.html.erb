@@ -13,29 +13,22 @@
 </p>
 
 <p>
-  <!-- Criar if para "Se não tiver notas, aparece texto.. se tiver, fazer a média" -->
   <strong>Average:</strong>
   <%= @item.average %>
 </p>
 
-
 <h2>Comentários</h2>
+<%= render 'comments/show' %>
 
-<% @item.comments.each do |c| %>
-	<p>
-	  <strong>Body:</strong>
-	  <%= c.body %>
-	</p>
-
-	<p>
-	  <strong>Score:</strong>
-	  <%= c.score %>
-	</p>
+<% if current_user != nil %>
+  <h2>Adicione um comentário</h2>
+	<%= render 'comments/form_new' %>
+	<% else %>
+		<br />
+		<h3> Deixe seu comentário! <%= link_to "Faça Login", login_path %> </h3>
 <% end %>
 
-<h2>Adicione um comentário</h2>
-
-<%= render 'comments/form' %>
-
+<% if current_user != nil && current_user.admin? %>
 <%= link_to 'Edit', edit_item_path(@item) %> 
+<% end %>
 <%= link_to 'Back', items_path %>

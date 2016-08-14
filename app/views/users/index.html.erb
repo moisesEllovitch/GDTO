@@ -2,7 +2,11 @@
 
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Users</h1>
+<% if current_user.admin %>
+  <h1>Listing All Users</h1>
+  <% else %>
+  <h1>Your User</h1>
+<% end %>
 
 <table>
   <thead>
@@ -20,7 +24,12 @@
         <td><%= user.password %></td>
         <td><%= link_to 'Show', user %></td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+       
+        <% if current_user.admin %>
+        <td>
+          <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %> 
+        </td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

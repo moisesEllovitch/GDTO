@@ -2,10 +2,10 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # Todos podem criar novo usuário (tela de sign up e submeter create)
-  before_action :authorize, except: [:new, :create]
+  before_action :authorize, except: [:new, :create, :update]
 
   # Apenas admin pode:
-  before_action :authorize_admin, only: [:edit, :update, :destroy]
+  before_action :authorize_admin, only: [:destroy]
 
   # Acho que serve para o próprio usuário.
   #before_action :correct_user?, only: [:show, :edit, :update, :destroy]
@@ -13,14 +13,20 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    #@users = current_user
-    @users = User.all
+    if current_user.admin?
+     @users = User.all 
+     else
+      @users = [current_user]
+    end
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
-    @user = User.find(params[:id])
+    if current_user.admin? || correct_user?
+      @user = User.find(params[:id])       
+  end
+
   end
 
   # GET /users/new
@@ -30,8 +36,9 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    @user = User.find(params[:id])
-    puts "current_user funciona corretamente."
+    if current_user.admin? || correct_user?
+      @user = User.find(params[:id])
+    end
   end
 
   # POST /users
@@ -63,15 +70,6 @@ class UsersController < ApplicationController
       end
     end
   end
-
-    def update
-      @user = User.find(params[:id]) 
-      if @user.update_attributes(user_params)
-        redirect_to users_path
-      else
-        render action: :edit
-      end
-    end
 
   # DELETE /users/1
   # DELETE /users/1.json

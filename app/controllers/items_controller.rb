@@ -1,12 +1,11 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_comments, only: [:show, :edit, :update, :destroy]
   # Todos podem ver index e show
   before_action :authorize, except: [:index, :show]
 
   # Apenas admin pode:
-  before_action :authorize_admin, only: [:edit, :update, :destroy]
-
+  before_action :authorize_admin, only: [:edit, :update, :destroy, :new, :create]
 
   # GET /items
   # GET /items.json
@@ -80,4 +79,9 @@ class ItemsController < ApplicationController
       params.require(:item).permit(:category, :institution, :average)
       # É aqui que deve ser incluído a média calculada no helper?
     end
+
+    def set_comments
+      @comments = @item.comments
+    end
+
 end
