@@ -9,48 +9,46 @@
 
 <body>
 	<div class="cabecalho">
-		<%= link_to image_tag('logo.jpg', class:"logo"), welcome_index_path %>
-		
+		<div class="logo">
+			<%= link_to image_tag('logo.jpg', class:"logo"), welcome_index_path %>
+		</div>
+		<nav class="classe_nav_menu">
+			<ul class="classe_ul_naveg">
+				<li class="classe_li_naveg"><%= link_to(:home, welcome_index_path)%></li>
+				<li class="classe_li_naveg"><%= link_to(:about, welcome_about_path) %></li>
+				<li class="classe_li_naveg"><%= link_to(:contact, welcome_contact_path)%></li>
+				<li class="classe_li_naveg"><%= link_to(:items, items_path)%>
+					<ul class="classe_ul_naveg">
+						<!--Colocar pra aparecer só quando colocar o mouse em cima.-->
+						<% @items.select('distinct category').each do |p| %>
+							<li class="classe_li_naveg"><%= link_to(p.category, items_path) %></li>
+						<% end %>
+					</ul>
+				</li>
+			</ul>
+		</nav>
 		<% if current_user != nil %>
-			<span id="user_identification"><%= "#{current_user.email}" %> <br /> <%= link_to "Log out", logout_path, method: "delete" %></span>
+			<span id="user_identification">
+				<%= "#{current_user.email}" %> <br /> 
+				<%= link_to "Log out", logout_path, method: "delete" %>
+			</span>
 		<% else %>
-			<span id="user_identification"><%= link_to "Login", login_path %> <br /><%= link_to "Sign up now!", new_user_path %></span>
-		<% end %>
-
-		
+			<span id="user_identification">
+				<%= link_to "Login", login_path %> <br />
+				<%= link_to "Sign up now!", new_user_path %>
+			</span>
+		<% end %>		
 	</div>
 
 	<div class="conteudo_layout">
 		<%= yield %>
 	</div>
 
-	<div class="navegacao_layout">
-		<div class="tabela_menu_div_1">
-			<table class="tabela_menu">
-				<tr>
-					<th class="tr_menu" colspan="3">Static Pages</th>
-				</tr>
-				<tr>
-					<td class="tr_menu"><%= link_to('home', welcome_index_path) %></td>
-					<td class="tr_menu"><%= link_to('about', welcome_about_path) %></td>
-					<td class="tr_menu"><%= link_to('contact', welcome_contact_path) %></td>
-				</tr>		
-			</table>
-		</div>
-		<br />
-		<br />
-		<div class="tabela_menu_div_1">
-			<table class="tabela_menu">
-				<tr>
-					<th colspan="3">Dynamic Pages</th>			
-				</tr>
-				<tr>
-					<td class="tr_menu"><%= link_to(:user, users_path) %></td>
-					<td class="tr_menu"><%= link_to(:items, items_path) %></td>
-					<td class="tr_menu"></td>
-				</tr>		
-			</table>
-		</div>
+	<div class="rodape_layout">
+		<p> Rodapé </p>
+		<p> Rodapé </p>
+		<p> Rodapé </p>
+		<p> Rodapé </p>
 	</div>
 	<%= debug(params) if Rails.env.development? %>
 </body>
