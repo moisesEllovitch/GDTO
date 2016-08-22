@@ -44,7 +44,8 @@
 .classe_ul_naveg{
 	list-style-type: none;
 	color: #f00;
-	padding: 20px;
+	padding: 10px;
+	margin-left: 60px;
 }
 
 .classe_li_naveg{
@@ -54,6 +55,7 @@
 
 .logo{
 	width: 60px;
+	float: left;
 }
 
 #user_identification{
