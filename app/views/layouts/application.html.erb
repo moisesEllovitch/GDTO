@@ -17,6 +17,9 @@
 				<li class="classe_li_naveg"><%= link_to(:home, welcome_index_path)%></li>
 				<li class="classe_li_naveg"><%= link_to(:about, welcome_about_path) %></li>
 				<li class="classe_li_naveg"><%= link_to(:contact, welcome_contact_path)%></li>
+				<% if current_user != nil && current_user.admin? %>
+					<li class="classe_li_naveg"><%= link_to(:users, users_path) %></li>
+				<% end %>
 				<li class="classe_li_naveg"><%= link_to(:items, items_path)%>
 					<ul class="classe_ul_naveg">
 						<!--Colocar pra aparecer só quando colocar o mouse em cima.-->
