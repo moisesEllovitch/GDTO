@@ -14,20 +14,30 @@
 		</div>
 		<nav class="classe_nav_menu">
 			<ul class="classe_ul_naveg">
-				<li class="classe_li_naveg"><%= link_to(:home, welcome_index_path)%></li>
-				<li class="classe_li_naveg"><%= link_to(:about, welcome_about_path) %></li>
-				<li class="classe_li_naveg"><%= link_to(:contact, welcome_contact_path)%></li>
-				<% if current_user != nil && current_user.admin? %>
-					<li class="classe_li_naveg"><%= link_to(:users, users_path) %></li>
-				<% end %>
-				<li class="classe_li_naveg"><%= link_to(:items, items_path)%>
-					<ul class="classe_ul_naveg">
-						<!--Colocar pra aparecer só quando colocar o mouse em cima.-->
-						<% @items.select('distinct category').each do |p| %>
-							<li class="classe_li_naveg"><%= link_to(p.category, items_path) %></li>
+				<li class="classe_li_naveg">
+					<%= link_to(:home, welcome_index_path)%>
+				</li>
+				<li class="classe_li_naveg">
+					<%= link_to(:about, welcome_about_path) %>
+				</li>
+				<li class="classe_li_naveg">
+					<%= link_to(:contact, welcome_contact_path)%>
+				</li>
+			<% if current_user != nil %>
+				<li class="classe_li_naveg">
+					<%= link_to(:users, users_path) %>
+				</li>
+			<% end %>
+				<li class="classe_li_naveg">
+					<%= link_to(:Categories, categories_path) %>
+					<ul class="classe_ul_naveg submenu">
+						<% @categories.each	do |c| %>
+							<li class="classe_li_naveg submenu">
+								<%= link_to(c.name, c) %>
+							</li>
 						<% end %>
 					</ul>
-				</li>
+				</li>					
 			</ul>
 		</nav>
 		<% if current_user != nil %>

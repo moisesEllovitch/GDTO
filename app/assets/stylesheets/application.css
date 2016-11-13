@@ -64,3 +64,13 @@
 	right: 30px;
 	color: #381;
 }
+
+/* submenu Dropdown */
+ul.submenu li.submenu{
+	display: none;
+}
+
+nav.classe_nav_menu > ul > li:last-child:hover .submenu{
+	background: gray;
+	display: table-row;
+}

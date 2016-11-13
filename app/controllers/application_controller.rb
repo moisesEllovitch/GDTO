@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include SessionsHelper
 
+  before_action :set_categories
   before_action :set_items
 
 	def authorize
@@ -13,7 +14,7 @@ class ApplicationController < ActionController::Base
 	end
 
 	def authorize_admin
-		unless current_user.admin?
+		unless logged_in? && current_user.admin?
 			redirect_to login_path, :notice => "Only admins can do it!"
 		end
 	end
@@ -31,17 +32,8 @@ class ApplicationController < ActionController::Base
 		@items = Item.all
 	end
 
-#Estou tentando ir para index de items, filtrado por categoria. Achei este código.
-=begin	def get_items(category)
-	    items = category.items.to_a
-	    category.subcategories.each do |sub|
-	      items << get_items(sub)
-	    end
-
-	    items
+	def set_categories
+		@categories = Category.all
 	end
-=end
 
-
-#ou esse: http://stackoverflow.com/questions/17685103/filtering-products-in-index-of-categories-products-by-products-attribute
 end

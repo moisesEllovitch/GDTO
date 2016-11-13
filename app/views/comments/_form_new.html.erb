@@ -1,5 +1,4 @@
-<!-- Este é o form antigo, que funcionava. Alterei pra fazer funcionar o Edit Comment, mas deixei comentado para caso precise em reaplica-lo em outro lugar, como o Create, por exemplo. -->
-<%= form_for([@item, @item.comments.build]) do |f| %>
+<%= form_for([@category, @item, @item.comments.build]) do |f| %>
   <div class="field">
     <%= f.label :body %><br>
     <%= f.text_field :body %>

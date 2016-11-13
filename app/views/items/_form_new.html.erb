@@ -1,0 +1,9 @@
+<%= form_for([@category, @category.items.build]) do |f| %>
+  <div class="field">
+    <%= f.label :institution %><br>
+    <%= f.text_field :institution %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

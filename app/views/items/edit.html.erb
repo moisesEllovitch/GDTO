@@ -4,5 +4,10 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @item %> |
-<%= link_to 'Back', items_path %>
+<h5>Considerações: (Para o Render form acima)
+- Criar nova tabela Category e alterar em Item, category para category_id 
+- O código select que faz o dropdown com as opções, está no arquivo "dropdown Categorias" criado só pra isso. Após pegar de volta, pode ser excluído.
+- O código de erro (nem sei se tava certo... ) está no arquivo "dropdown Categorias". Após pegar de volta, pode ser excluído.</h5>
+
+<%= link_to 'Back', category_item_path(@category, @item) %>
+

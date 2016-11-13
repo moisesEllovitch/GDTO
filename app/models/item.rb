@@ -1,9 +1,11 @@
 class Item < ActiveRecord::Base
 	has_many :comments, :dependent => :destroy # Sem este :dependent é impossível excluir itens com comentários
+	belongs_to :category
 
 	validates :category, presence: true
 	validates :institution, presence: true
 	#validates :average, :numericality => { :greater_than_or_equal_to => 0, :less_than => 11} #, presence: true
+
 
 	def calculate_average
 		puts "Entrei no método calculate_average dentro de Item. "
@@ -20,16 +22,17 @@ class Item < ActiveRecord::Base
 
 		puts "Array: #{array_scores}"
 
-		# fazer a média: somar os elementos do array, e dividir pelo tamanho dele. 
-#		puts "O somatório inicia com o valor de #{somatorio}"
-
 		# Somar os elementos através do Inject. Seria a mesma coisa que: array_scores.each do |value| somatorio += value end
 		somatorio = array_scores.inject(:+)
 
 		puts "Somatório dos elementos: #{somatorio}"
 
-		media = somatorio / array_scores.length
-		puts "Média: #{media}"
+		if array_scores.length < 1
+			# media continua sendo 11. 
+		else
+			media = somatorio / array_scores.length
+			puts "Média: #{media}"
+		end
 
 		# inserir a média no atributo average
 		self.average = media

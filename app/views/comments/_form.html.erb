@@ -1,7 +1,6 @@
-
-<%= form_for ([@item, @comment]) do |f| %>
+<%= form_for([@category, @item, @comment]) do |f| %>
   <div class="field">
-    <%= f.label :body %><br>
+    <%= f.label :body %><br />
     <%= f.text_field :body %>
   </div>
   <div class="field">

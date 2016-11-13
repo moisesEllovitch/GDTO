@@ -1,4 +1,5 @@
-<%= form_for(@item) do |f| %>
+<%= form_for ([@category, @item]) do |f| %>
+
   <% if @item.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h2>
@@ -13,17 +14,12 @@
 
   <div class="field">
     <%= f.label :category %><br>
-    <%= f.text_field :category %>
   </div>
   <div class="field">
     <%= f.label :institution %><br>
     <%= f.text_field :institution %>
   </div>
-<!--    <div class="field">
-    <%= f.label :average %><br>
-    <%= f.number_field :average %>
-  </div>
- -->  <div class="actions">
+  <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>

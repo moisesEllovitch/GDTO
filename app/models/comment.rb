@@ -11,4 +11,12 @@ class Comment < ActiveRecord::Base
 		puts "Voltei ao after_create. Valor do average: #{item.average}"
 	end
 
+	after_destroy do
+		item.calculate_average
+	end
+
+	after_update do
+		item.calculate_average
+	end
+
 end
