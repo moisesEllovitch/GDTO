@@ -2,39 +2,40 @@
 
 <p id="notice"><%= notice %></p>
 
-<% if current_user.admin %>
-  <h1>Listing All Users</h1>
-  <% else %>
-  <h1>Your User</h1>
-<% end %>
+<% (current_user.admin?) ? 
+($size = 'col-md-7' and $li_head = 'ALL USERS' and $size1 = 'col-md-7') : 
+($size = 'col-md-5' and $size1 = 'col-md-9' and $li_head = 'MY USER') %>
+  
+<ul class="list-group <%= $size %>">
+  <li class="list-group-item list-group-item-heading text-center">
+    <h4><%= $li_head %></h4> 
+  </li>
 
-<table>
-  <thead>
-    <tr>
-      <th>Email</th>
-      <th>Password</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.email %></td>
-        <td><%= user.password %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-       
+  <% @users.each do |user| %>
+    <li class="list-group-item list-group-item-body list-group-item">
+      <div class="row">
+        <div class="<%= $size1 %>">
+          <span class="first_col_no_admin">
+            <%= link_to user.email %>
+          </span>
+        </div>
+        <div class="col-md-2">
+          <button>
+            <%= link_to 'Edit', edit_user_path(user) %>
+          </button>
+        </div>
         <% if current_user.admin %>
-        <td>
-          <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %> 
-        </td>
+          <div class="col-md-2">
+            <button>
+              <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %> 
+            </button>
+          </div>
         <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        </div>
+      </li>
+  <% end %>
+  </ul>
 
-<br>
-
-<%= link_to 'New User', new_user_path %>
+<button type="button" class="links_bottom_page">
+  <%= link_to 'New User', new_user_path %>
+</button>

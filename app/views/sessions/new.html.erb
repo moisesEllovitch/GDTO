@@ -1,26 +1,37 @@
 <% provide(:title, "Login") %>
-<h1>Login</h1>
+<h1 class="title">Login</h1>
 
-<%= flash[:notice] if flash[:notice] %>
+<span class="text-danger">
+  <%= flash[:notice] if flash[:notice] %>
+</span>
 
-<%= form_for(:session, url: login_path) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
+<%= form_for(:session, url: login_path, html: {class:'form-horizontal'}, role:"form") do |f| %>
+  <div class="form-group field">
+      <%= f.label :email, class:"control-label col-md-2" %>
+    <div class="col-md-5">
+      <%= f.text_field :email, class:"form-control", id:"email", placeholder:"Enter email" %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :password %><br>
-    <%= f.password_field :password %>
+
+  <div class="form-group field">
+      <%= f.label :password, class:"control-label col-md-2" %>
+    <div class="col-md-5">
+    <%= f.password_field :password, type:"password", class:"form-control", id:"pwd", placeholder:"Enter password" %>
+    </div>
   </div>
 
-  <%= f.label :remember_me, class: "checkbox inline" do %>
-    <%= f.check_box :remember_me %>
-    <span>Remember me on this computer</span>
-  <% end %>
+  <div class="form-group checkbox">
+    <%= f.label :remember_me, class:"col-md-offset-2 col-md-10" do %>
+    <%= f.check_box :remember_me, type:"checkbox"  %>
+      <span>Remember me on this computer</span>
+    <% end %>
+  </div>
 
-  <div class="actions">
-    <%= f.submit "Login" %>
+  <div class="form-group actions">
+      <div class="col-md-offset-2 col-md-10">
+         <%= f.submit "Login" %>
+      </div>
   </div>
 <% end %>
 
-<p>New user? <%= link_to "Sign up now!", new_user_path %></p>
+<span class="links_bottom_page">New user? <%= link_to "Sign up now!", new_user_path %></span>

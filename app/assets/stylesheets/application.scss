@@ -1,0 +1,96 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body{
+	background: #3C5840;
+}
+
+.conteudo{
+	background: #70C1BF;
+	margin: 15px;
+	padding: 20px;
+	min-height: 400px;
+	position: relative;
+}
+
+.conteudo-interno{
+	position: static;	
+}
+
+.rodape{
+	background: #0A4048;
+	color: #6D6363;
+	margin-top: 15px;
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
+li{
+    padding-right: 20px;
+}
+
+.logo{
+	width: 60px;
+	float: left;
+}
+
+.navbar > ul > li:last-child:hover .submenu{
+	background: #0A4048;
+	display: table-row;
+}
+
+.page-header-fluid{
+	background: #0A4048;
+}
+
+.page-header-fluid .container-fluid{
+	padding: 20px;	
+}
+
+.title{
+	padding-bottom: 15px;
+}
+
+.actions{
+	margin-top: 10px;
+}
+
+.links_bottom_page{
+	position: absolute;
+	bottom: 5px;
+	left: 5px;
+}
+
+.list-group-item-heading{
+	background: #3C5840;
+	color: #fff;
+}
+
+.list-group-item-body{
+	background: #A5C5B7;
+	
+}
+
+.title{
+	color: #205828
+}
+
+.first_col_no_admin{
+	margin-left: 15px;
+}

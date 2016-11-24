@@ -8,61 +8,94 @@
 </head>
 
 <body>
-	<div class="cabecalho">
-		<div class="logo">
-			<%= link_to image_tag('logo.jpg', class:"logo"), welcome_index_path %>
-		</div>
-		<nav class="classe_nav_menu">
-			<ul class="classe_ul_naveg">
-				<li class="classe_li_naveg">
-					<%= link_to(:home, welcome_index_path)%>
-				</li>
-				<li class="classe_li_naveg">
-					<%= link_to(:about, welcome_about_path) %>
-				</li>
-				<li class="classe_li_naveg">
-					<%= link_to(:contact, welcome_contact_path)%>
-				</li>
-			<% if current_user != nil %>
-				<li class="classe_li_naveg">
-					<%= link_to(:users, users_path) %>
-				</li>
-			<% end %>
-				<li class="classe_li_naveg">
-					<%= link_to(:Categories, categories_path) %>
-					<ul class="classe_ul_naveg submenu">
-						<% @categories.each	do |c| %>
-							<li class="classe_li_naveg submenu">
-								<%= link_to(c.name, c) %>
-							</li>
-						<% end %>
+<div class="page-header-fluid">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="logo col-md-2">
+				<%= link_to image_tag('logo.jpg', class:"logo img-rounded"), welcome_index_path %>
+			</div>
+			<div class="col-md-8">
+				<nav class="navbar navbar-collapse collapse">
+					<ul class="nav nav-tabs .nav-justified">
+						<li>
+							<%= link_to(:Home, welcome_index_path)%>
+						</li>
+						<li>
+							<%= link_to(:About, welcome_about_path) %>
+						</li>
+						<li>
+							<%= link_to(:Contact, welcome_contact_path)%>
+						</li>
+					<% if current_user != nil %>
+						<li>
+							<%= link_to(:Users, users_path) %>
+						</li>
+					<% end %>
+						<li class="dropdown">
+							<%= link_to(:Categories, categories_path) %>
+							<ul class="submenu dropdown-menu" id="dd">
+								<% @categories.each	do |c| %>
+									<li class="submenu">
+										<%= link_to(c.name, c) %>
+									</li>
+								<% end %>
+							</ul>
+						</li>					
 					</ul>
-				</li>					
-			</ul>
-		</nav>
-		<% if current_user != nil %>
-			<span id="user_identification">
-				<%= "#{current_user.email}" %> <br /> 
-				<%= link_to "Log out", logout_path, method: "delete" %>
-			</span>
-		<% else %>
-			<span id="user_identification">
-				<%= link_to "Login", login_path %> <br />
-				<%= link_to "Sign up now!", new_user_path %>
-			</span>
-		<% end %>		
-	</div>
+				</nav>
+			</div>
+			<div class="identification col-md-3 text-right"">
+				<% if current_user != nil %>
+					<span id="user_identification">
+						<span class="text-muted text-justify glyphicon glyphicon-user">
+							<strong>
+								<%= "#{current_user.email}" %> 
+							</strong>
+						</span>
+						<br /> 
+						<span class="btn btn-default btn-xs">
+							<%= link_to "Log out", logout_path, method: "delete" %>
+						</span>
+					</span>
+				<% else %>
+					<span id="user_identification">
+						<span class="btn btn-default btn-xs">
+							<%= link_to "Login", login_path %> 
+						</span>
+						<br />
+						<span class="btn btn-default btn-xs">
+							<%= link_to "Sign up now!", new_user_path %>
+						</span>
+					</span>
+				<% end %>
+			</div>
+		</div>
+	</div>		
+</div>
 
-	<div class="conteudo_layout">
-		<%= yield %>
+<div class="container-fluid conteudo">
+	<div class="row-fluid">
+		<div class="col-md-2"></div>
+		<div class="col-md-8 text-justify container conteudo-interno">
+			<%= yield %>
+		</div>
+		<div class="col-md-2"></div>
 	</div>
+</div>
 
-	<div class="rodape_layout">
-		<p> Rodapé </p>
-		<p> Rodapé </p>
-		<p> Rodapé </p>
-		<p> Rodapé </p>
+<div class="container-fluid rodape text-center text-muted">
+	<div class="row-fluid">
+		<div class="col-md-12">
+			<span class="glyphicon glyphicon-copyright-mark"> 
+				Desenvolvido por Morré Ellovitch
+			</span>
+		</div>
+		<div class="col-md-12">
+			<span class="glyphicon glyphicon-pencil"> 
+				E-mail: moisesello@gmail.com
+			</span>
+		</div>
 	</div>
-	<%= debug(params) if Rails.env.development? %>
+</div>
 </body>
 </html>
