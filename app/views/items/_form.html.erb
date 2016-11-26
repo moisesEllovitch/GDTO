@@ -1,9 +1,8 @@
-<%= form_for ([@category, @item]) do |f| %>
+<%= form_for(([@category, @item]),html:{class:'form-horizontal', type:'form'}) do |f| %>
 
   <% if @item.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h2>
-
       <ul>
       <% @item.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -12,14 +11,21 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :category %><br>
+  <div class="form-group field">
+    <%= f.label :category, class:"control-label col-md-2" %>
+    <label class="control-label col-md-1">
+      <%= @category.name %>
+    </label>
   </div>
-  <div class="field">
-    <%= f.label :institution %><br>
-    <%= f.text_field :institution %>
+  <div class="form-group field">
+    <%= f.label :institution, class:"control-label col-md-2" %>
+    <div class="col-md-5">
+      <%= f.text_field :institution, class:"form_campo_color" %>
+    </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group actions">
+    <div class="col-md-offset-2 col-md-10">
+      <%= f.submit %>
+    </div>
   </div>
 <% end %>

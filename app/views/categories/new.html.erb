@@ -1,5 +1,13 @@
-<h1>New Category</h1>
+<% provide(:title, "New Category") %>
 
+<h3>
+	<strong>
+		New Category
+	</strong>
+</h3>
 <%= render 'form' %>
 
-<%= link_to 'Back', categories_path %>
+
+<button type="button" class="links_bottom_page">
+	<%= link_to 'Back', categories_path %>
+</button>

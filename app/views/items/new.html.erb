@@ -1,7 +1,13 @@
 <% provide(:title, 'Criar Item') %>
 
-<h1>New Item</h1>
+<h3>
+	<strong>
+		New Item
+	</strong>
+</h3>
 
 <%= render 'form' %>
 
-<%= link_to 'Back', items_path %>
+<button class="links_bottom_page" type="button">
+	<%= link_to 'Back', items_path %>
+</button>

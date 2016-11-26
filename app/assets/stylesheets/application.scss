@@ -17,10 +17,31 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+
+/* Master Page */
 body{
-	background: #3C5840;
+	background: #6D9CA9;
 }
 
+.logo{
+	width: 80px;
+	float: left;
+}
+
+.navbar > ul > li:last-child:hover .submenu{
+	background: #7FA7AD;
+	display: table-row;
+}
+
+.page-header-fluid{
+	background: #7FA7AD;
+}
+
+.page-header-fluid .container-fluid{
+	padding: 20px;	
+}
+
+/* Content */
 .conteudo{
 	background: #70C1BF;
 	margin: 15px;
@@ -33,38 +54,22 @@ body{
 	position: static;	
 }
 
+/* Footer */
 .rodape{
 	background: #0A4048;
 	color: #6D6363;
-	margin-top: 15px;
-	padding-top: 30px;
-	padding-bottom: 30px;
+	margin-top: 18px;
+	padding-top: 18px;
+	padding-bottom: 15px;
 }
 
 li{
     padding-right: 20px;
 }
 
-.logo{
-	width: 60px;
-	float: left;
-}
-
-.navbar > ul > li:last-child:hover .submenu{
-	background: #0A4048;
-	display: table-row;
-}
-
-.page-header-fluid{
-	background: #0A4048;
-}
-
-.page-header-fluid .container-fluid{
-	padding: 20px;	
-}
-
 .title{
 	padding-bottom: 15px;
+	color: #205828;
 }
 
 .actions{
@@ -77,6 +82,21 @@ li{
 	left: 5px;
 }
 
+.links_bottom_th{
+	position: absolute;
+	bottom: 25%;
+	right: 5%;
+}
+
+.btn-color-table{
+	background: #F5EF8B;
+}
+
+.btn-color-div{
+	background: #70C1BF;
+}
+
+/* Lists */
 .list-group-item-heading{
 	background: #3C5840;
 	color: #fff;
@@ -84,13 +104,55 @@ li{
 
 .list-group-item-body{
 	background: #A5C5B7;
-	
-}
-
-.title{
-	color: #205828
 }
 
 .first_col_no_admin{
 	margin-left: 15px;
 }
+
+/* Tables */
+table{
+	background: #55A09F;
+}
+tbody{
+	background: #D2C558;
+}
+tbody tr:nth-child(odd) {
+   background-color: #D8E690;
+}
+
+.th_relative{
+	position: relative;
+}
+
+.form_campo_color{
+	background: #DDE8E6;
+}
+
+.title_item{
+	border-width: thin;
+    border-style: dotted;
+    border-color: #FFE801;
+    padding: 8px 0px 8px 0px;
+}
+ 
+ .comments{
+	border-bottom-width: thin;
+    border-bottom-style: dashed;
+    border-bottom-color: #FFE801;
+    padding: 15px 0px 15px 0px;
+ }
+
+ .new_comment_box{
+ 	min-height: 80px;
+ }
+
+.btn-categories{
+	padding: 15px 0px 5px 0px;
+}
+
+.teste{
+	background: #78B9B8;
+}
+
+

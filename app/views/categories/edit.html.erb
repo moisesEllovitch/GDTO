@@ -1,5 +1,12 @@
-<h1>Editing Category</h1>
-
+<% provide(:title, "Edit Category") %>
+<h3>
+	<strong>
+		Editing Category
+	</strong>
+</h3>
 <%= render 'form' %>
 
-<%= link_to 'Back', categories_path %>
+<button type="button" class="links_bottom_page">
+	<%= link_to 'Back', categories_path %>
+</button> 
+

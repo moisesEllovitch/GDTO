@@ -2,39 +2,40 @@
 
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Category:</strong>
-  <%= @item.category.name %>
-</p>
-
-<p>
-  <strong>Institution:</strong>
-  <%= @item.institution %>
-</p>
-
-<p>
-  <strong>Average:</strong>
-  <% if @item.average == nil || @item.average == 11 %>
-    <%= "--" %>
-  <% else %>
-    <%= @item.average %>
-  <% end %>
-</p>
+<div class="row title_item">
+  <div class="col-md-4">
+    <strong>Category:</strong>
+    <%= @item.category.name  %>
+  </div>  
+  <div class="col-md-4">
+    <strong>Institution:</strong>
+    <%= @item.institution %>
+    <% if current_user != nil && current_user.admin? %>
+    <button type="button" class="btn-color-div btn-xs ">
+      <%= link_to 'Edit', edit_category_item_path(@category, @item) %> 
+    </button>
+<% end %>
+  </div>  
+  <div class="col-md-4">
+    <strong>Average:</strong>
+    <% if @item.average == nil || @item.average == 11 %>
+      <%= "--" %>
+    <% else %>
+      <%= @item.average %>
+    <% end %>
+  </div>
+</div>
 
 <h2>Comentários</h2>
 <%= render 'comments/show' %>
+
 <% if current_user != nil %>
   <h2>Adicione um comentário</h2>
-	<%= render'comments/form_new' %>
-
-	<% else %>
-		<br />
-		<h3> Deixe seu comentário! <%= link_to "Faça Login", login_path %> </h3>
+  <%= render'comments/form_new' %>
+<% else %>
+    <h3> Deixe seu comentário! <%= link_to "Faça Login", login_path %> </h3>
 <% end %>
 
-<% if current_user != nil && current_user.admin? %>
-<%= link_to 'Edit', edit_category_item_path(@category, @item) %> 
-<% end %>
-<%= link_to 'Back', category_path(@category) %>
-
-
+<button type="button" class="links_bottom_page">
+  <%= link_to 'Back', category_path(@category) %>
+</button>
