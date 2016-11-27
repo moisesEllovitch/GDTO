@@ -153,10 +153,12 @@ tbody tr:nth-child(odd) {
 	border-bottom-width: thin;
     border-bottom-style: dashed;
     padding: 15px 0px 15px 0px;
+	border-radius: 10%;
  }
 
 .bg-comments{
 	background-image: linear-gradient(to bottom, white, var(--main-bg-color));
+	border-radius: 5%;
 }
 
  .new_comment_box{
