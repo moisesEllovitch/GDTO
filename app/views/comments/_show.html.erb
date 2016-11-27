@@ -1,6 +1,7 @@
 <% if !@comments.any? %>
 	<p>Seja o primeiro a comentar!</p>
 <% else %>
+	<div class="bg-comments">
 	<% @comments.each do |co| %>
 		<div class="comments">
 			<div class="container-fluid ">
@@ -39,7 +40,7 @@
 			<% end %>
 		</div>
 	<% end %>
-
+</div>
 <% end %>
 
 

@@ -152,9 +152,12 @@ tbody tr:nth-child(odd) {
  .comments{
 	border-bottom-width: thin;
     border-bottom-style: dashed;
-	background: var(--main-bg-color);
     padding: 15px 0px 15px 0px;
  }
+
+.bg-comments{
+	background-image: linear-gradient(to bottom, white, var(--main-bg-color));
+}
 
  .new_comment_box{
  	min-height: 80px;
@@ -163,5 +166,4 @@ tbody tr:nth-child(odd) {
 .btn-categories{
 	padding: 15px 0px 5px 0px;
 }
-
 
