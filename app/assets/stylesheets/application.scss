@@ -17,10 +17,14 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+:root {
+  --main-bg-color: #7FA7AD;
+}
 
 /* Master Page */
 body{
-	background: #6D9CA9;
+	/*background: #6D9CA9;*/
+	background: var(--main-bg-color);
 }
 
 .logo{
@@ -29,12 +33,12 @@ body{
 }
 
 .navbar > ul > li:last-child:hover .submenu{
-	background: #7FA7AD;
+	background: var(--main-bg-color);
 	display: table-row;
 }
 
 .page-header-fluid{
-	background: #7FA7AD;
+	background: var(--main-bg-color);
 }
 
 .page-header-fluid .container-fluid{
@@ -43,7 +47,8 @@ body{
 
 /* Content */
 .conteudo{
-	background: #70C1BF;
+	/*background: #70C1BF;*/
+	background-image: linear-gradient(to bottom, white, var(--main-bg-color));
 	margin: 15px;
 	padding: 20px;
 	min-height: 400px;
@@ -89,21 +94,26 @@ li{
 }
 
 .btn-color-table{
-	background: #F5EF8B;
+	background: var(--main-bg-color);
+}
+
+.btn-color-head-table{
+	background: var(--main-bg-color);
 }
 
 .btn-color-div{
-	background: #70C1BF;
+	background: #ECF2F3;
 }
 
 /* Lists */
 .list-group-item-heading{
-	background: #3C5840;
+	background: var(--main-bg-color);
 	color: #fff;
 }
 
 .list-group-item-body{
 	background: #A5C5B7;
+	background-color: rgba(165, 197, 183, 0.21);
 }
 
 .first_col_no_admin{
@@ -112,13 +122,16 @@ li{
 
 /* Tables */
 table{
-	background: #55A09F;
+	background: var(--main-bg-color);
+	border-radius: 14px;
 }
+
 tbody{
-	background: #D2C558;
+	background: var(--main-bg-color);
 }
+
 tbody tr:nth-child(odd) {
-   background-color: #D8E690;
+   background-color: #CCDCDF;
 }
 
 .th_relative{
@@ -130,16 +143,16 @@ tbody tr:nth-child(odd) {
 }
 
 .title_item{
-	border-width: thin;
+	border-width: medium;
     border-style: dotted;
-    border-color: #FFE801;
+	background: var(--main-bg-color);
     padding: 8px 0px 8px 0px;
 }
  
  .comments{
 	border-bottom-width: thin;
     border-bottom-style: dashed;
-    border-bottom-color: #FFE801;
+	background: var(--main-bg-color);
     padding: 15px 0px 15px 0px;
  }
 
@@ -149,10 +162,6 @@ tbody tr:nth-child(odd) {
 
 .btn-categories{
 	padding: 15px 0px 5px 0px;
-}
-
-.teste{
-	background: #78B9B8;
 }
 
 
