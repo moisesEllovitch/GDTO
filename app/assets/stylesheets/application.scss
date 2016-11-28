@@ -46,7 +46,7 @@ body{
 }
 
 /* Content */
-.conteudo{
+.content{
 	/*background: #70C1BF;*/
 	background-image: linear-gradient(to bottom, white, var(--main-bg-color));
 	margin: 15px;
@@ -56,12 +56,12 @@ body{
 	overflow-y:auto;
 }
 
-.conteudo-interno{
+.content-intern{
 	position: static;	
 }
 
 /* Footer */
-.rodape{
+.footer{
 	background: #0A4048;
 	color: #6D6363;
 	margin-top: 18px;
