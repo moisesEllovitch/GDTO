@@ -1,14 +1,11 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
-  # Todos podem criar novo usuário (tela de sign up e submeter create)
+  # Everyone can create a new user (sign up, and submit create)
   before_action :authorize, except: [:new, :create, :update]
 
-  # Apenas admin pode:
+  # Only admin can:
   before_action :authorize_admin, only: [:destroy]
-
-  # Acho que serve para o próprio usuário.
-  #before_action :correct_user?, only: [:show, :edit, :update, :destroy]
 
   # GET /users
   # GET /users.json

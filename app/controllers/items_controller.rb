@@ -4,9 +4,9 @@ class ItemsController < ApplicationController
   before_action :set_items, only: [:index, :show]
   before_action :set_item, only: [:edit, :update, :destroy, :show]
   before_action :set_comments, only: [:show, :edit, :update, :destroy]
-  # Apenas admin pode:
+  # Only admin can:
   before_action :authorize_admin, only: [:edit, :update, :destroy, :new, :create]
-  # Todos podem ver index e show
+  # Everyone can see index and show
   before_action :authorize, except: [:index, :show]
 
   # GET /items
@@ -33,7 +33,7 @@ class ItemsController < ApplicationController
   # POST /items
   # POST /items.json
   def create
-    # Criar e salvar o item
+    # Create and save the item
     @item = @category.items.create(item_params)
 
     redirect_to category_path(@category)

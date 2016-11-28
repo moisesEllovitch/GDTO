@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
   before_action :set_comments
   before_action :set_comment, only: [:edit, :update, :destroy]
 
-  # Apenas usuários podem criar comentários. 
+  # Only users can create comments.
   before_action :authorize
 
   def new
@@ -14,15 +14,10 @@ class CommentsController < ApplicationController
   end
 
   def create
-    # Encontrar o item que será o pai do novo comentário - já está no set_item
-    # @item = Item.find(params[:item_id])
+    # Find an Item of the comment (set_item)
 
     # Criar e salvar o comentário
     @comment = @item.comments.create(comment_params)
-
-    # Redirecionar para show de item.
-    #@error_message = @comment.errors.full_messages
-    #redirect_to item_path(@item, @error_message)
     redirect_to category_item_path(@category, @item)
   end
 

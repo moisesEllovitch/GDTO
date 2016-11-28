@@ -1,4 +1,4 @@
-<% provide(:title, 'Listando Itens') %>
+<% provide(:title, 'Listing Items') %>
 
 <p id="notice"><%= notice %></p>
 
@@ -26,14 +26,14 @@
   </div>
 </div>
 
-<h2>Comentários</h2>
+<h2>Comments</h2>
 <%= render 'comments/show' %>
 
 <% if current_user != nil %>
-  <h2>Adicione um comentário</h2>
+  <h2>Add comment</h2>
   <%= render'comments/form_new' %>
 <% else %>
-    <h3> Deixe seu comentário! <%= link_to "Faça Login", login_path %> </h3>
+    <h3> Leave your comment! <%= link_to "Faça Login", login_path %> </h3>
 <% end %>
 
 <button type="button" class="links_bottom_page">
