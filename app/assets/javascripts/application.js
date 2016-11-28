@@ -14,15 +14,3 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-
-
-/*
-Estava procurando como fazer o sub menu aparecer no MouseOver
-object.onmouseover=function(){myScript};
-
-object.addEventListener("mouseover", myScript);
-
-function myOverFunction() {
-    document.getElementById("demo3").innerHTML = y+=1;
-}
-*/
