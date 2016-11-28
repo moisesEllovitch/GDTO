@@ -51,8 +51,9 @@ body{
 	background-image: linear-gradient(to bottom, white, var(--main-bg-color));
 	margin: 15px;
 	padding: 20px;
-	min-height: 400px;
+	height: 400px;
 	position: relative;
+	overflow-y:auto;
 }
 
 .conteudo-interno{
