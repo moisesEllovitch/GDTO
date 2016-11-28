@@ -6,6 +6,10 @@ class CategoriesController < ApplicationController
   # GET /categories.json
   def index
     @categories = Category.all
+
+    (current_user != nil && current_user.admin?) ? 
+    ($size = 'col-md-7' and $size1 = 'col-md-7') : 
+    ($size = 'col-md-5' and $size1 = '')
   end
 
   # GET /categories/1

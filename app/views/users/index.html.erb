@@ -1,11 +1,7 @@
-<% provide(:title, 'Home Users') %>
+<% provide(:title, 'Listing Users') %>
 
 <p id="notice"><%= notice %></p>
 
-<% (current_user.admin?) ? 
-($size = 'col-md-7' and $li_head = 'ALL USERS' and $size1 = 'col-md-7') : 
-($size = 'col-md-5' and $size1 = 'col-md-9' and $li_head = 'MY USER') %>
-  
 <ul class="list-group <%= $size %>">
   <li class="list-group-item list-group-item-heading text-center">
     <h4><%= $li_head %></h4> 
@@ -15,8 +11,8 @@
     <li class="list-group-item list-group-item-body list-group-item">
       <div class="row">
         <div class="<%= $size1 %>">
-          <span class="first_col_no_admin">
-            <%= link_to user.email %>
+          <span class="first_col_no_admin user_email">
+            <%= user.email %>
           </span>
         </div>
         <div class="col-md-2">

@@ -1,7 +1,5 @@
-<% provide(:title, 'Listando Categorias') %>
+<% provide(:title, 'Listing Categories') %>
 <p id="notice"><%= notice %></p>
-
-<% (current_user != nil && current_user.admin?) ? ($size = 'col-md-7' and $size1 = 'col-md-7') : ($size = 'col-md-5' and $size1 = '') %>
 
 <ul class="list-group <%= $size %>">
   <li class="list-group-item list-group-item-heading text-center">

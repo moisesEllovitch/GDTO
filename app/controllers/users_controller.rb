@@ -15,6 +15,10 @@ class UsersController < ApplicationController
      else
       @users = [current_user]
     end
+
+    (current_user.admin?) ? 
+    ($size = 'col-md-7' and $size1 = 'col-md-7' and $li_head = 'ALL USERS') : 
+    ($size = 'col-md-5' and $size1 = 'col-md-9' and $li_head = 'MY USER')
   end
 
   # GET /users/1
