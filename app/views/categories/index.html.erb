@@ -1,15 +1,15 @@
 <% provide(:title, 'Listing Categories') %>
 <p id="notice"><%= notice %></p>
 
-<ul class="list-group <%= $size %>">
+<ul class="list-group <%= $size_ul %>">
   <li class="list-group-item list-group-item-heading text-center">
     <h4>CATEGORIES</h4> 
   </li>
   <% @categories.each do |category| %>
     <li class="list-group-item list-group-item-body list-group-item">
       <div class="row">
-        <div class="<%= $size1 %>">
-          <span class="badge first_col_no_admin">
+        <div class="<%= $size_li %>">
+          <span class="badge ss first_col_no_admin">
             <%= category.items.count %>
           </span>
           <span class="first_col_no_admin">
@@ -17,13 +17,13 @@
           </span>
         </div>
         <% if current_user != nil && current_user.admin? %>
-          <div class="col-md-2">
-            <button>
+          <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+            <button class="btn_size">
               <%= link_to 'Edit', edit_category_path(category) %>
             </button>               
           </div>
-          <div class="col-md-2">
-            <button>
+          <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+            <button class="btn_size">
               <%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %>
             </button>              
           </div>
@@ -34,7 +34,7 @@
 </ul>
 
 <% if current_user != nil && current_user.admin? %>
-  <button type="button" class="links_bottom_page">
+  <button type="button" class="links_bottom_page btn_size">
     <%= link_to 'New Category', new_category_path %>
   </button> 
 <% end %>

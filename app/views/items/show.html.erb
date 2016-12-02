@@ -3,20 +3,20 @@
 <p id="notice"><%= notice %></p>
 
 <div class="row title_item">
-  <div class="col-md-4">
+  <div class="col-lg-4 col-md-3 col-sm-3 col-xs-3">
     <strong>Category:</strong>
     <%= @item.category.name  %>
   </div>  
-  <div class="col-md-4">
+  <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6">
     <strong>Institution:</strong>
     <%= @item.institution %>
     <% if current_user != nil && current_user.admin? %>
-    <button type="button" class="btn-color-div btn-xs ">
-      <%= link_to 'Edit', edit_category_item_path(@category, @item) %> 
-    </button>
-<% end %>
+      <button type="button" class="btn-color-div btn-xs">
+        <%= link_to 'Edit', edit_category_item_path(@category, @item) %> 
+      </button>
+    <% end %>
   </div>  
-  <div class="col-md-4">
+  <div class="col-lg-4 col-md-3 col-sm-3 col-xs-3">
     <strong>Average:</strong>
     <% if @item.average == nil || @item.average == 11 %>
       <%= "--" %>
@@ -26,7 +26,7 @@
   </div>
 </div>
 
-<h2>Comments</h2>
+<h3 class="title">Comments</h3>
 <%= render 'comments/show' %>
 
 <% if current_user != nil %>
@@ -36,6 +36,6 @@
     <h3> Leave your comment! <%= link_to "Faça Login", login_path %> </h3>
 <% end %>
 
-<button type="button" class="links_bottom_page">
+<button type="button" class="links_bottom_page btn_size">
   <%= link_to 'Back', category_path(@category) %>
 </button>

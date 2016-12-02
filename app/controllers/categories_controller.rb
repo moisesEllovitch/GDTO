@@ -8,8 +8,10 @@ class CategoriesController < ApplicationController
     @categories = Category.all
 
     (current_user != nil && current_user.admin?) ? 
-    ($size = 'col-md-7' and $size1 = 'col-md-7') : 
-    ($size = 'col-md-5' and $size1 = '')
+    ($size_ul = 'col-lg-offset-2 col-md-offset-1 col-sm-offset-1 col-xs-offset-1 
+      col-lg-9 col-md-9 col-sm-10 col-xs-10' and $size_li = 'col-lg-7 col-md-7 col-sm-6 col-xs-6') : 
+    ($size_ul = 'col-lg-offset-2 col-md-offset-2 col-sm-offset-1 col-xs-offset-1 
+    col-lg-9 col-md-9 col-sm-10 col-xs-10' and $size_li = '')
   end
 
   # GET /categories/1

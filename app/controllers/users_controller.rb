@@ -17,8 +17,9 @@ class UsersController < ApplicationController
     end
 
     (current_user.admin?) ? 
-    ($size = 'col-md-7' and $size1 = 'col-md-7' and $li_head = 'ALL USERS') : 
-    ($size = 'col-md-5' and $size1 = 'col-md-9' and $li_head = 'MY USER')
+    ($size_ul = 'col-lg-offset-2 col-lg-7 col-md-offset-2 col-md-7 col-sm-offset-2 col-sm-7 
+      col-xs-offset-2 col-xs-7' and $size_li = 'col-lg-7 col-md-7 col-sm-6 col-xs-6' and $li_head = 'ALL USERS') : 
+    ($size_ul = 'col-lg-offset-3 col-lg-5 col-md-offset-3 col-md-5 col-sm-offset-4 col-sm-5 col-xs-offset-4 col-xs-5' and $size_li = 'col-lg-9 col-md-9 col-sm-9 col-xs-9' and $li_head = 'MY USER')
   end
 
   # GET /users/1

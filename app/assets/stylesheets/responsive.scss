@@ -1,0 +1,61 @@
+/* Responsive: lg screen*/
+@media(min-width: 1200px){
+}
+
+/* Responsive: md screen*/
+@media(min-width : 992px){
+}
+
+/* Responsive: sm screen*/
+@media(min-width : 768px){
+}
+
+/* Responsive: xs screen*/
+@media(min-width : 320px){
+}
+
+.logo{
+	@media(min-width : 320px){
+		
+	}	
+}
+
+.btn_size{
+	@media(min-width : 320px){
+		font-size: 10px;
+	}
+
+	@media(min-width : 768px){
+		font-size: 11px;	
+	}
+
+	@media(min-width : 992px){
+		font-size:	13px;
+	}
+}
+
+.control-label{
+	@media(min-width : 320px){
+		font-size: small;
+	}
+
+	@media(min-width : 768px){
+		font-size: 14px;	
+	}
+}
+
+.title{
+	padding-bottom: 15px;
+
+	@media(min-width : 320px){
+		font-size: 30px;
+	}
+
+	@media(min-width : 768px){
+		font-size: 33px;
+	}
+
+	@media(min-width : 992px){
+		font-size: 38px;
+	}
+}

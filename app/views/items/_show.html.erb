@@ -7,7 +7,7 @@
             <%= @category.name %> - Itens Cadastrados:
         </strong>
         </h3>
-        <button type="button" class="links_bottom_th btn-color-head-table">
+        <button type="button" class="links_bottom_th btn-color-head-table btn_size">
           <%= link_to 'Edit', edit_category_path(@category) %>
         </button>
       </th>
@@ -37,12 +37,12 @@
 
         <% if current_user != nil && current_user.admin? %>
           <td>
-            <button class="btn-color-table">
+            <button class="btn-color-table btn_size">
             <%= link_to('Edit', edit_category_item_path(@category, it)) %>
             </button>
           </td>
           <td>
-            <button class="btn-color-table">
+            <button class="btn-color-table btn_size">
             <%= link_to('Destroy', category_item_path(@category, it), method: :delete, data: { confirm: 'Delete this item?' }) %>
             </button>
           </td>

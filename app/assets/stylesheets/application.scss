@@ -23,18 +23,29 @@
 
 /* Master Page */
 body{
-	/*background: #6D9CA9;*/
 	background: var(--main-bg-color);
 }
 
 .logo{
 	width: 80px;
 	float: left;
+	position: absolute;
 }
 
-.navbar > ul > li:last-child:hover .submenu{
-	background: var(--main-bg-color);
-	display: table-row;
+nav.navbar > ul {
+	li {
+		text-align: center;
+
+	}
+
+	li:last-child:hover {
+		padding-left: 0px;
+
+		.submenu{
+			background: var(--main-bg-color);
+			display: table-row;
+		}
+	}
 }
 
 .page-header-fluid{
@@ -71,11 +82,6 @@ body{
 
 li{
     padding-right: 20px;
-}
-
-.title{
-	padding-bottom: 15px;
-	color: #205828;
 }
 
 .actions{
@@ -144,6 +150,12 @@ tbody tr:nth-child(odd) {
 
 .form_campo_color{
 	background: #DDE8E6;
+
+	@media(max-width : 767px){
+		width: 127px;
+		height: 28px;
+		font-size: 10px;
+	}	
 }
 
 .title_item{
