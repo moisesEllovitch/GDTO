@@ -1,4 +1,13 @@
-<h1>Editing Comment</h1>
+<% provide(:title, 'Editing Comment') %>
+
+<h3>
+	<strong>
+		Editing Comment
+	</strong>
+</h3>
 
 <%= render 'form' %>
 
+<button type="button" class="links_bottom_page">
+	<%= link_to 'Back', category_item_path(@category, @item) %>
+</button> 
