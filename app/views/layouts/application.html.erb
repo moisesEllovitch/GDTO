@@ -22,25 +22,25 @@
 					<!-- nav-justified doesn't show fine the nav in XS screen -->
 					<ul class="nav nav-tabs nav-justified"> 
 						<li class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-							<%= link_to(:Home, welcome_index_path, class:'')%>
+							<%= link_to(:Home, welcome_index_path, class:'effect_link_nav')%>
 						</li>
 						<li class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-							<%= link_to(:About, welcome_about_path, class:'') %>
+							<%= link_to(:About, welcome_about_path, class:'effect_link_nav') %>
 						</li>
 						<li class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-							<%= link_to(:Contact, welcome_contact_path, class:'')%>
+							<%= link_to(:Contact, welcome_contact_path, class:'effect_link_nav')%>
 						</li>
 					<% if current_user != nil %>
 						<li class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-							<%= link_to(:Users, users_path, class:'') %>
+							<%= link_to(:Users, users_path, class:'effect_link_nav') %>
 						</li>
 					<% end %>
-						<li class="dropdown text-center col-lg-4 col-md-4 col-sm-4 col-xs-12">
-							<%= link_to(:Categories, categories_path, class:'') %>
+						<li class="dropdown text-center col-lg-4 col-md-4 col-sm-4">
+							<%= link_to(:Categories, categories_path, class:'effect_link_nav') %>
 							<ul class="submenu dropdown-menu ">
 								<% @categories.each	do |c| %>
-									<li class="submenu">
-										<%= link_to(c.name, c) %>
+									<li class="">
+										<%= link_to(c.name, c, class:'') %>
 									</li>
 								<% end %>
 							</ul>

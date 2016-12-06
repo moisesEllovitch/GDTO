@@ -32,20 +32,40 @@ body{
 	position: absolute;
 }
 
-nav.navbar > ul {
+nav.navbar > ul.nav {
 	li {
 		text-align: center;
 
 	}
 
 	li:last-child:hover {
-		padding-left: 0px;
 
 		.submenu{
 			background: var(--main-bg-color);
 			display: table-row;
+			width: 100%;
 		}
 	}
+}
+
+li.dropdown{
+	padding: 0px;
+}
+
+.effect_link_nav:before{
+	content:'';
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 0px;
+	height: 42px;
+	background: rgba(255,255,255,0.3);
+	border-radius: 5px;
+	transition: all 2s ease;
+}
+
+.effect_link_nav:hover:before{
+	width: 100%;
 }
 
 .page-header-fluid{
@@ -81,7 +101,7 @@ nav.navbar > ul {
 }
 
 li{
-    padding-right: 20px;
+	padding: 0px 25px;
 }
 
 .actions{
@@ -188,4 +208,3 @@ tbody tr:nth-child(odd) {
 .btn-categories{
 	padding: 15px 0px 5px 0px;
 }
-
