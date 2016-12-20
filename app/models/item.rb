@@ -4,15 +4,15 @@ class Item < ActiveRecord::Base
 
 	validates :category, presence: true
 	validates :institution, presence: true
-	#validates :average, :numericality => { :greater_than_or_equal_to => 0, :less_than => 11} #, presence: true
+	validates :average, :numericality => { :greater_than_or_equal_to => 0, :less_than_or_equal_to => 10}
 
 
 	def calculate_average
 		puts "Entrei no método calculate_average dentro de Item. "
 
-		# criar array de notas (scores) e variável media (* Se 11, não aparecer)
+		# criar array de notas (scores) e variável media
 		array_scores = Array.new
-		media = 11
+		media = nil
 		somatorio = 0
 
 		# percorrer todos comentários e armazenar num array de inteiros
@@ -28,7 +28,7 @@ class Item < ActiveRecord::Base
 		puts "Somatório dos elementos: #{somatorio}"
 
 		if array_scores.length < 1
-			# media continua sendo 11. 
+			# media continua sendo nil. 
 		else
 			media = somatorio / array_scores.length
 			puts "Média: #{media}"
