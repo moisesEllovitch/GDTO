@@ -18,7 +18,7 @@
   </div>  
   <div class="col-lg-4 col-md-3 col-sm-3 col-xs-3">
     <strong>Average:</strong>
-    <% if @item.average == nil || @item.average == 11 %>
+    <% if @item.average == nil %>
       <%= "--" %>
     <% else %>
       <%= @item.average %>

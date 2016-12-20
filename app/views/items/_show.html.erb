@@ -28,7 +28,7 @@
           <%= link_to(it.institution, category_item_path(@category, it)) %>
         </td>
         <td>
-  	      <% if it.average == nil || it.average == 11 %>
+  	      <% if it.average == nil %>
   	        <%= "--" %>
   	      <% else %>
   	        <%= it.average %>

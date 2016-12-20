@@ -38,6 +38,11 @@ gem 'bootstrap-sass', '3.3.6'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'rspec-rails', '~> 3.5'
+  #gem 'shoulda-matchers', '~> 3.1', require: false
+  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  #gem 'spring'
+  gem 'sqlite3', '1.3.12'
 end
 
 group :development do
@@ -46,5 +51,13 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+end
+
+group :test do
+  gem 'shoulda-matchers'
+end
+
+group :production do
+  gem 'pg', '0.18.4'
 end
 

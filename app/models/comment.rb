@@ -2,7 +2,7 @@ class Comment < ActiveRecord::Base
 	belongs_to :item
 
 	validates :body, presence: true#, length: { minimum: 5 }  
- 	validates :score, presence: true, :numericality => { :greater_than_or_equal_to => 0, :less_than => 11}
+ 	validates :score, presence: true, :numericality => { :greater_than_or_equal_to => 0, :less_than_or_equal_to => 10}
  
 	# after_initialize / after_find => calculate_average
 	after_create do
