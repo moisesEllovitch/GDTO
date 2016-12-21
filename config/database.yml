@@ -48,7 +48,14 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
+  adapter: postgresql
+  #prepared_statements: false
+  encoding: unicode
+  pool: 5
+  username: admin_gdto
+  password: password
+  socket: /var/run/mysqld/mysqld.sock
+
   database: goodDecisionsToOlim_production
   username: goodDecisionsToOlim
   password: <%= ENV['GOODDECISIONSTOOLIM_DATABASE_PASSWORD'] %>

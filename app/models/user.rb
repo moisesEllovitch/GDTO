@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
 	before_save { self.email = email.downcase }
 	
 	validates :email, presence: true, uniqueness: true
-	validates :password_digest, presence: true, length: {minimum: 5}
+	validates :password_digest, presence: true, length:{minimum: 5}
 
 	has_secure_password
 
