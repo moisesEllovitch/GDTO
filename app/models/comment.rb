@@ -3,12 +3,11 @@ class Comment < ActiveRecord::Base
 
 	validates :body, presence: true#, length: { minimum: 5 }  
  	validates :score, presence: true, :numericality => { :greater_than_or_equal_to => 0, :less_than_or_equal_to => 10}
+	 	#, allow_nil:true
  
 	# after_initialize / after_find => calculate_average
 	after_create do
-		puts "entrei no after_create",
 		item.calculate_average
-		puts "Voltei ao after_create. Valor do average: #{item.average}"
 	end
 
 	after_destroy do

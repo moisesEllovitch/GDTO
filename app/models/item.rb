@@ -6,36 +6,36 @@ class Item < ActiveRecord::Base
 	validates :institution, presence: true
 	validates :average, :numericality => { :greater_than_or_equal_to => 0, :less_than_or_equal_to => 10}, allow_nil:true
 
-	def calculate_average
-		puts "Entrei no método calculate_average dentro de Item. "
+	def calculate_average 
+		# create an array of v_scores, variable v_average and the v_sum.
+		v_scores = Array.new
+		v_average = nil
+		v_sum = 0
 
-		# criar array de notas (scores) e variável media
-		array_scores = Array.new
-		media = nil
-		somatorio = 0
-
-		# percorrer todos comentários e armazenar num array de inteiros
+		# Go through comments and store them at the array
 		self.comments.each do |c|
-			array_scores.push(c.score)
+			v_scores.push(c.score)
 		end
 
-		puts "Array: #{array_scores}"
+		puts "Array: #{v_scores}"
 
-		# Somar os elementos através do Inject. Seria a mesma coisa que: array_scores.each do |value| somatorio += value end
-		somatorio = array_scores.inject(:+)
+		# Sum the elements by Inject. It's the same of: v_scores.each do |value| v_sum += value
+		v_sum = v_scores.inject(:+)
 
-		puts "Somatório dos elementos: #{somatorio}"
+		puts "Sum of the elements: #{v_sum}"
 
-		if array_scores.length < 1
-			# media continua sendo nil. 
+		if v_scores.length < 1
+			# v_average keep been nil
 		else
-			media = somatorio / array_scores.length
-			puts "Média: #{media}"
+			v_average = v_sum / v_scores.length
+			puts "Average: #{v_average}"
 		end
 
-		# inserir a média no atributo average
-		self.average = media
+		# Save the average on the Itemself
+		self.average = v_average
 		self.save
+
+		return self.average
 	end
 
 end
