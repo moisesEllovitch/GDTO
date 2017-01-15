@@ -12,7 +12,7 @@ class Item < ActiveRecord::Base
 		v_average = nil
 		v_sum = 0
 
-		# Go through comments and store them at the array
+		# Go through comments and store them at the array..
 		self.comments.each do |c|
 			v_scores.push(c.score)
 		end
