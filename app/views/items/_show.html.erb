@@ -4,12 +4,14 @@
       <th colspan="4" class="text-center th_relative">
         <h3>
         <strong>
-            <%= @category.name %> - Itens Cadastrados:
+            <%= @category.name %> - Registered items:
         </strong>
         </h3>
-        <button type="button" class="links_bottom_th btn-color-head-table btn_size">
-          <%= link_to 'Edit', edit_category_path(@category) %>
-        </button>
+        <% if current_user != nil && current_user.admin? %>
+          <button type="button" class="links_bottom_th btn-color-head-table btn_size">
+            <%= link_to 'Edit', edit_category_path(@category) %>
+          </button>
+        <% end %>
       </th>
     </tr>
     <tr>

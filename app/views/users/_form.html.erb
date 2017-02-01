@@ -1,4 +1,4 @@
-<%= form_for(@user, html: {class:'form-horizontal'}, role:"form") do |f| %>
+<%= form_for(@user, html: {class:'form-horizontal', id:'form_user'}, role:"form") do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -14,19 +14,19 @@
   <div class="form-group field">
     <%= f.label :email, class:"control-label col-lg-2 col-md-2 col-sm-2 col-xs-2" %>
     <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
-    <%= f.text_field :email, class:"form-control form_campo_color", id:"email", placeholder:"Enter email" %>
+    <%= f.text_field :email, class:"form-control form_campo_color js-style-featured", id:"email", placeholder:"Enter email" %>
     </div>
   </div>
   <div class="form-group field">
     <%= f.label :password, class:"control-label col-lg-2 col-md-2 col-sm-2 col-xs-2" %>
     <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
-    <%= f.password_field :password, type:"password", class:"form-control form_campo_color", id:"pwd", placeholder:"Enter password" %>
+    <%= f.password_field :password, type:"password", class:"form-control form_campo_color js-style-featured", id:"pwd", placeholder:"Enter password" %>
     </div>
   </div>
   <div class="form-group field">
     <%= f.label :confirmation, class:"control-label col-lg-2 col-md-2 col-sm-2 col-xs-2" %>
     <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
-    <%= f.password_field :password_confirmation, type:"password", class:"form-control form_campo_color", id:"pwd", placeholder:"Confirm password" %>
+    <%= f.password_field :password_confirmation, type:"password", class:"form-control form_campo_color js-style-featured", id:"pwd_confirm", placeholder:"Confirm password" %>
     </div>
   </div>
   <div class="form-group actions">

@@ -9,18 +9,18 @@
   <%= flash[:notice] if flash[:notice] %>
 </span>
 
-<%= form_for(:session, url: login_path, html: {class:'form-horizontal'}, role:"form") do |f| %>
+<%= form_for(:session, url: login_path, html: {class:'form-horizontal',id:'login_form'}, role:"form") do |f| %>
   <div class="form-group field">
       <%= f.label :email, class:"control-label col-lg-2 col-md-2 col-sm-2 col-xs-2" %>
     <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
-      <%= f.text_field :email, class:"form-control form_campo_color", id:"email", placeholder:"Enter email" %>
+      <%= f.text_field :email, class:"form-control form_campo_color js-style-featured", id:"email", placeholder:"Enter email" %>
     </div>
   </div>
 
   <div class="form-group field">
       <%= f.label :password, class:"control-label col-lg-2 col-md-2 col-sm-2 col-xs-2" %>
     <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
-    <%= f.password_field :password, type:"password", class:"form-control form_campo_color", id:"pwd", placeholder:"Enter password" %>
+    <%= f.password_field :password, type:"password", class:"form-control form_campo_color js-style-featured", id:"pwd", placeholder:"Enter password" %>
     </div>
   </div>
 
@@ -38,4 +38,8 @@
   </div>
 <% end %>
 
-<span class="links_bottom_page btn_size">New user? <%= link_to "Sign up now!", new_user_path %></span>
+<span class="links_bottom_page btn_size">New user?</span>
+<button class="links_bottom_page btn_size">
+  <%= link_to "Sign up now!", new_user_path %>
+
+</button> 
