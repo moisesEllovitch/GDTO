@@ -35,6 +35,23 @@ function main(){
 		formFeatured("login_form")
 	}
 
+	tecnologies()
+}
+
+
+function tecnologies(){
+	var tecnologies = document.getElementById("tecnologies")
+	var tecnologies_down = document.getElementById("tecnologies_down")
+
+	tecnologies.onclick = function(){
+		if(tecnologies.classList.contains("active_tecnologies")){
+			tecnologies.classList.remove("active_tecnologies");
+			tecnologies_down.classList.remove("active_tecnologies_down");
+		} else {
+			tecnologies.classList.add("active_tecnologies");
+			tecnologies_down.classList.add("active_tecnologies_down");	
+		}
+	}
 }
 
 

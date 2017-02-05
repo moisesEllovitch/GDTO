@@ -77,6 +77,46 @@ li.dropdown{
 }
 
 /* Content */
+
+.tecnologies{
+	background:#7FA7AD; 
+	color: white; 
+	width:160px; 
+	height:18px;
+	
+	:hover{
+	    box-shadow: rgb(39, 38, 38) 0px 0px 30px;
+	}
+}
+
+.arrow_tecnologies{
+    border-top: 11px solid white;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    float: left;
+    margin-top: 3px;
+    margin-left: 3px;
+}
+
+.tecnologies_down ul{
+	padding: 0;
+	display: none;
+}
+
+.active_tecnologies_down{
+	padding-top: 5px;
+
+	ul{
+		display: inline;
+	
+		li {
+			padding-bottom: 2px;
+		}
+	}
+
+}
+
+
 .content{
 	/*background: #70C1BF;*/
 	background-image: linear-gradient(to bottom, white, var(--main-bg-color));
@@ -102,6 +142,7 @@ li.dropdown{
 
 li{
 	padding: 0px 25px;
+	list-style: none;
 }
 
 .actions{

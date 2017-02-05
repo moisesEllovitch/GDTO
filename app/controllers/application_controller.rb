@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
 
   before_action :set_categories
   before_action :set_items
+  before_action :store_tecnologies
 
 	def authorize
 		unless logged_in?
@@ -34,6 +35,11 @@ class ApplicationController < ActionController::Base
 
 	def set_categories
 		@categories = Category.all
+	end
+
+	def store_tecnologies
+		@tecnologies = Array["Ruby on Rails","HTML5", "CSS", "SCSS", "Bootstrap", "MySql", 
+			"Javascript", "JQuery", "Git", "Tests - RSpec", "Shoulda Matchers", "Heroku"]
 	end
 
 end
